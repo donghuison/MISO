@@ -101,7 +101,7 @@ public:
                   "Derived must have member variable 'src'.");
 
     mhd.apply_initial_condition(d.ic, d.bc);
-    if (config["io"]["continue"].as<bool>() &&
+    if (config["io"]["continue"].template as<bool>() &&
         fs::exists(fs::path(time.time_save_dir) / "n_output.txt")) {
       load_state();
     }
